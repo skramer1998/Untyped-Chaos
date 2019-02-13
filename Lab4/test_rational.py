@@ -26,3 +26,6 @@ class TestRational(TestCase):
         self.assertNotEqual(self.rat1.add(self.rat1), self.rat1, "please don't stay the same value when adding not zero")
         self.assertEquals(self.rat3.add(self.rat3), self.rat1, "1/4 + 1/4 should equal 1/2")
         self.assertRaises(self, SomeException(), self.rat1.add("cheese"), )
+
+    def test_mul(self):
+        self.assertEqual(self.)
