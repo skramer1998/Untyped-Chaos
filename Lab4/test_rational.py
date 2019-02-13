@@ -29,3 +29,5 @@ class TestRational(TestCase):
 
     def test_mul(self):
         self.assertEqual(self.)
+
+    def test_div(self):
