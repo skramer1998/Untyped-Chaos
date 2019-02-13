@@ -9,7 +9,7 @@ class TestRational(TestCase):
         self.badCon = Rational('hello', '34')
     
     def test_posDen(self):
-        self.assertTrue(self.negDen.d < 0)
+        self.assertTrue(self.negDen.d > 0)
 
     """Test Case Ideas"""
     def test_badConstructor(self):
