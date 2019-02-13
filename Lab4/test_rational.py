@@ -29,3 +29,12 @@ class TestRational(TestCase):
 
 
     def test_div(self):
+
+    def test_sub(self):
+        self.assertEqual(self.rat1.__sub__(0), self.rat1, ".5 - 0 == .5")
+        self.assertEqual(self.rat1.__sub__(0.000001), 0.499999, ".5 - .000001 == .499999")
+        self.assertEqual(self.rat1.__sub__(-1), 1.5, ".5 - (-1) == 1.5")
+        self.assertEqual(self.rat1.__sub__(-0.000001), .500001, ".5 - (-.000001) == .500001")
+        self.assertEqual(self.rat1.__sub__(1), -0.5, ".5 - 1 == -0.5")
+        self.assertEqual(self.rat1.__sub__(10000), -9999.5, ".5 - 10000 == -9999.5")
+        self.assertEqual(self.rat1.__sub__(-10000), 10000.5, ".5 - (-10000) == 10000.5")
