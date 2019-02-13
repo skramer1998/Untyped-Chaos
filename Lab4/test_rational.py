@@ -12,7 +12,15 @@ class TestRational(TestCase):
         self.rat2 = Rational(2, 3)
         self.rat3 = Rational(1, 4)
         self.rat4 = Rational(7, 4)
-    
+
+    def test___str__(self):
+        self.assertEqual(self.rat1.__str__(self.rat1), "1/2")
+        self.assertEqual(self.rat2.__str__(self.rat2), "2/3")
+        self.assertEqual(self.rat3.__str__(self.rat3), "1/4")
+        self.assertEqual(self.rat4.__str__(self.rat4), "7/4")
+        self.assertEqual(self.negDen.__str__(self.badDen), "-0/2")
+        self.assertEqual(self.good.__str__(self.good), "0/1")
+
     def test_posDen(self):
         self.assertTrue(self.negDen.d > 0)
 
@@ -22,10 +30,10 @@ class TestRational(TestCase):
 
 
     def test_add(self):
-        self.assertEquals(self.rat1.add(0), self.rat1, "please stay the same value when adding zero")
-        self.assertNotEqual(self.rat1.add(self.rat1), self.rat1, "please don't stay the same value when adding not zero")
-        self.assertEquals(self.rat3.add(self.rat3), self.rat1, "1/4 + 1/4 should equal 1/2")
-        self.assertRaises(self, SomeException(), self.rat1.add("cheese"), )
+        self.assertEqual(self.rat1.__add__(0), self.rat1, "please stay the same value when adding zero")
+        self.assertNotEqual(self.rat1.__add__(self.rat1), self.rat1, "please don't stay the same value when adding not zero")
+        self.assertEqual(self.rat3.__add__(self.rat3), self.rat1, "1/4 + 1/4 should equal 1/2")
+        self.assertRaises(SomeException(), self.rat1.__add__("cheese"), "if it doesn't raise an exception shit's not great")
 
 
     def test_div(self):
