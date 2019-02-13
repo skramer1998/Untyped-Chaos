@@ -38,4 +38,4 @@ class TestRational(TestCase):
 
     def test_div(self):
         self.assertEqual(self.rat1._div_(self.rat1), 1, "Divide by self should be 1")
-        self.assertEqual(self.rat1._div_(self.rat1), self.rat1, "Divide by self should be 1")
+        self.assertEqual(self.rat1._div_(1), self.rat1, "Divide by 1 should be self")
