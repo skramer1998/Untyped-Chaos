@@ -26,3 +26,6 @@ class TestRational(TestCase):
         self.assertNotEqual(self.rat1.__add__(self.rat1), self.rat1, "please don't stay the same value when adding not zero")
         self.assertEqual(self.rat3.__add__(self.rat3), self.rat1, "1/4 + 1/4 should equal 1/2")
         self.assertRaises(SomeException(), self.rat1.__add__("cheese"), "if it doesn't raise an exception shit's not great")
+
+
+    def test_div(self):
