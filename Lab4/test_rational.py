@@ -22,6 +22,7 @@ class TestRational(TestCase):
 
 
     def test_add(self):
-        self.assertEquals(self.add(0), self)
-        self.assertNotEqual(self.add(self), self)
-        self.assertEquals(self.add(self), )
+        self.assertEquals(self.rat1.add(0), self.rat1, "please stay the same value when adding zero")
+        self.assertNotEqual(self.rat1.add(self.rat1), self.rat1, "please don't stay the same value when adding not zero")
+        self.assertEquals(self.rat3.add(self.rat3), self.rat1, "1/4 + 1/4 should equal 1/2")
+        self.assertRaises(self, SomeException(), self.rat1.add("cheese"), )
