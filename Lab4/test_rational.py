@@ -14,3 +14,7 @@ class TestRational(TestCase):
     """Test Case Ideas"""
     def test_badConstructor(self):
         self.assertRaises(SomeException, self.badCon)
+
+
+    def test_add(self):
+        self.assertEquals(self.add(0), self)
