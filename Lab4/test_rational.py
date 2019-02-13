@@ -3,9 +3,7 @@ from rational import Rational
 
 class TestRational(TestCase):
     def setUp(self):
-       rat = Rational()
+        self.negDen = Rational(0, -2)
     
     def test_posDen(self):
-        self.assertTrue(rat.d > 0);
-    
-    def 
+        self.assertTrue(self.negDen.d < 0)
