@@ -28,6 +28,6 @@ class TestRational(TestCase):
         self.assertRaises(self, SomeException(), self.rat1.add("cheese"), )
 
     def test_mul(self):
-        self.assertEqual(self.)
+        self.assertEqual(self.rat1.__mul__(self.rat1),self.rat3,"1/2 * 1/2 should equal 1/4")
 
     def test_div(self):
