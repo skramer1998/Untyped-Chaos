@@ -48,8 +48,13 @@ class LoginTests(unittest.TestCase):
         - Failure: "Error logging out."
     """
     def test_command_logout_correct(self):
-        self.ui.command("logout Instructor InstructorPassword")
+        self.ui.command("login Instructor InstructorPassword")
         self.assertEqual(self.fsa.command("logout"), "Logged out successfully.")
+
+    def test_command_logout_allows_relogin(self):
+        self.ui.command("login Instructor InstructorPassword")
+        self.assertEqual(self.fsa.command("logout"), "Logged out successfully")
+        self.assertEqual(self.fsa.command("login Instructor InstructorPassword"), "Logged in successfully")
 
     def test_command_logout_not_logged_in(self):
         self.assertEqual(self.fsa.command("logout"), "Error logging out.")
