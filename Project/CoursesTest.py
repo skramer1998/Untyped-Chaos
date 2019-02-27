@@ -11,7 +11,7 @@ class CoursesTest(unittest.TestCase):
         """
             self.fsa.command("create_course course_name course_number course_place course_days course_time course_semester course_professor course_tas course_labs")
         
-            When the create course command is entered, it takes 11 arguments:
+            When the create course command is entered, and the user has a valid ID, it takes 11 arguments:
             - Course Name
             - Course Number
             - Course Meeting Place
@@ -25,5 +25,11 @@ class CoursesTest(unittest.TestCase):
             A database entry should be created for the curse, if course creation is a success:
             - "Course created successfully."
             If input parameters are invalid or entry creation fails, failure:
-            - "Error creating account."
+            - "Error: Invalid parameters or database error"
+            If user trying to create an account does not have access to do so, failure:
+            - "Error: Access Denied"
         """
+
+    def test_course_creation_correct(self):
+        fas.command(login Supervisor supervisorPassword)
+        self.assertEqual(self.fas.command("create_course "))
