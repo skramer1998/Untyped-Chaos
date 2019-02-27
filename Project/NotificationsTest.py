@@ -20,7 +20,7 @@ class NotificationsTest(unittest.TestCase):
         The subject field may be left blank.
         """
 
-    def test_supervisor_privilage(self):
+    def test_supervisor_privilege(self):
         self.fsa.command("login Supervisor supervisorPassword")
         self.assertEqual(self.fsa.command("new_notification all_users Important"), "New notification started")
         self.assertEqual(self.fsa.command("new_notification all_tas test"), "New notification started")
@@ -32,7 +32,7 @@ class NotificationsTest(unittest.TestCase):
         The Supervisor should be able to send notifications to all emails and all groupings of emails.
         """
 
-    def test_administrator_privelage(self):
+    def test_administrator_privelege(self):
         self.fsa.command("login Administrator adminPassword")
         self.assertEqual(self.fsa.command("new_notification all_users Important"), "New notification started")
         self.assertEqual(self.fsa.command("new_notification all_tas test"), "New notification started")
@@ -42,4 +42,29 @@ class NotificationsTest(unittest.TestCase):
 
         """
         The Administrator should be able to send notifications to all emails and all groupings of emails.
+        """
+
+
+    def test_instructor_privilege(self):
+        self.fsa.command("login Instructor instructorPassword")
+        self.assertEqual(self.fsa.command("new_notification all_users Important"), "Unauthorized to notify this group")
+        self.assertEqual(self.fsa.command("new_notification all_tas test"), "New notification started")
+        self.assertEqual(self.fsa.command("new_notification all_instructors Hey"), "Unauthorized to notify this group")
+        self.assertEqual(self.fsa.command("new_notification all_admins Listen!"), "Unauthorized to notify this group")
+        self.assertEqual(self.fsa.command("new_notification jrock@uwm.edu HELP"), "New notification started")
+
+        """
+        The Instructor should be able to send notifications to all emails but only the TAs list.
+        """
+
+    def test_TA_lackOfPrivilege(self):
+        self.fsa.command("login TeacherAid taPassword")
+        self.assertEqual(self.fsa.command("new_notification all_users Important"), "Unauthorized to notify this group")
+        self.assertEqual(self.fsa.command("new_notification all_tas test"), "Unauthorized to notify this group")
+        self.assertEqual(self.fsa.command("new_notification all_instructors Hey"), "Unauthorized to notify this group")
+        self.assertEqual(self.fsa.command("new_notification all_admins Listen!"), "Unauthorized to notify this group")
+        self.assertEqual(self.fsa.command("new_notification jrock@uwm.edu HELP"), "New notification started")
+
+        """
+        The TA should only be able to send notifications to email addresses.
         """
