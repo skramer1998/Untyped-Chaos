@@ -17,7 +17,7 @@ class NotificationsTest(unittest.TestCase):
 
         The use of these is restricted on an account-type basis.
 
-        The subject field may be blank.
+        The subject field may be left blank.
         """
 
         self.fsa.command("new_notification jrock@uwm.edu Help")
