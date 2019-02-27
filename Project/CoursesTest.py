@@ -30,6 +30,15 @@ class CoursesTest(unittest.TestCase):
             - "Error: Access Denied"
         """
 
-    def test_course_creation_correct(self):
-        fas.command(login Supervisor supervisorPassword)
-        self.assertEqual(self.fas.command("create_course "))
+    # Correct Course Creation Tests
+    def test_course_creation_supervisor_correct(self):
+        fsa.command(login Supervisor supervisorPassword)
+        self.assertEqual(self.fsa.command("create_course testCourse 999 wonderLand M-T-W-TR-F 9-9 SP20 jackson"), "Course created successfully")
+
+    """
+        Supervisor should be able to create a course,
+        Success: Course created successfully
+        Failure: Course not created successfully
+    """
+
+    def test_course_creation_administrator_correct(self):
