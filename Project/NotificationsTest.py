@@ -27,3 +27,19 @@ class NotificationsTest(unittest.TestCase):
         self.assertEqual(self.fsa.command("new_notification all_instructors Hey"), "New notification started")
         self.assertEqual(self.fsa.command("new_notification all_admins Listen!"), "New notification started")
         self.assertEqual(self.fsa.command("new_notification jrock@uwm.edu HELP"), "New notification started")
+
+        """
+        The Supervisor should be able to send notifications to all emails and all groupings of emails.
+        """
+
+    def test_administrator_privelage(self):
+        self.fsa.command("login Administrator adminPassword")
+        self.assertEqual(self.fsa.command("new_notification all_users Important"), "New notification started")
+        self.assertEqual(self.fsa.command("new_notification all_tas test"), "New notification started")
+        self.assertEqual(self.fsa.command("new_notification all_instructors Hey"), "New notification started")
+        self.assertEqual(self.fsa.command("new_notification all_admins Listen!"), "New notification started")
+        self.assertEqual(self.fsa.command("new_notification jrock@uwm.edu HELP"), "New notification started")
+
+        """
+        The Administrator should be able to send notifications to all emails and all groupings of emails.
+        """
