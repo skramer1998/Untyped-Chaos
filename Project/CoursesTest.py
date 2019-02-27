@@ -82,5 +82,16 @@ class CoursesTest(unittest.TestCase):
         Failure: Course created successfully
     """
 
-
+    #Correct Course Editing Tests
+    def test_course_edit_correct(self):
+        self.fsa.command("login Supervisor supervisorPassword")
+        self.assertEqual(self.fsa.command("edit_course 361 name softwareSupplies"), "Course name updated.")
+        self.assertEqual(self.fsa.command("edit_course 361 number 362"), "Course number updated.")
+        self.assertEqual(self.fsa.command("edit_course 362 place laphamHall"), "Course place updated.")
+        self.assertEqual(self.fsa.command("edit_course 362 days M-W-TR"), "Course days updated.")
+        self.assertEqual(self.fsa.command("edit_course 362 times 10-11"), "course times updated.")
+        self.assertEqual(self.fsa.command("edit_course 362 semester SP20"), "Course semester updated.")
+        self.assertEqual(self.fsa.command("edit_course 362 professor james"), "Course professor updated.")
+        self.assertEqual(self.fsa.command("edit_course 362 ta albany"), "Course ta updated.")
+        self.assertEqual(self.fsa.command("edit_course 362 lab M-W"), "Course lab updated.")
 
