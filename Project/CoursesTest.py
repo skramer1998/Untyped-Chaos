@@ -32,7 +32,7 @@ class CoursesTest(unittest.TestCase):
 
     # Correct Course Creation Tests
     def test_course_creation_supervisor_correct(self):
-        fsa.command(login Supervisor supervisorPassword)
+        self.fsa.command("login Supervisor supervisorPassword")
         self.assertEqual(self.fsa.command("create_course testCourse 999 wonderLand M-T-W-TR-F 9-9 SP20 jackson"), "Course created successfully")
 
     """
@@ -42,7 +42,7 @@ class CoursesTest(unittest.TestCase):
     """
 
     def test_course_creation_administrator_correct(self):
-        fsa.command(login Administrator administratorPassword)
+        self.fsa.command("login Administrator administratorPassword")
         self.assertEqual(self.fsa.command("create_course testCourse 999 wonderLand M-T-W-TR-F 9-9 SP20 jackson"), "Course created successfully")
 
     """
@@ -53,7 +53,7 @@ class CoursesTest(unittest.TestCase):
 
     # Failed Course Creation Tests
     def test_course_creation_instructor(self):
-        fsa.command(login Instructor instructorPassword)
+        self.fsa.command("login Instructor instructorPassword")
         self.assertEqual(self.fsa.command("create_course testCourse 999 wonderLand M-T-W-TR-F 9-9 SP20 jackson"), "Error: Access Denied")
 
     """
@@ -63,7 +63,7 @@ class CoursesTest(unittest.TestCase):
     """
 
     def test_course_creation_ta(self):
-        fsa.command(login TA taPassword)
+        self.fsa.command("login TA taPassword")
         self.assertEqual(self.fsa.command("create_course testCourse 999 wonderLand M-T-W-TR-F 9-9 SP20 jackson"), "Error: Access Denied")
 
     """
