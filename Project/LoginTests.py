@@ -1,5 +1,5 @@
 import unittest
-
+#remember, fsa stands for functional school app
 
 class LoginTests(unittest.TestCase):
     def setup(self):
