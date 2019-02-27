@@ -72,3 +72,15 @@ class CoursesTest(unittest.TestCase):
         Failure: Course created successfully
     """
 
+    def test_course_creation_invalid_params(self):
+        self.fsa.command("login Supervisor supervisorPassword")
+        self.assertEqual(self.fsa.command("create_course hello"), "Error: Invalid parameters or database error")
+
+    """
+        Trying to create a course with invalid parameters should not create a course,
+        Success: Course not created successfully
+        Failure: Course created successfully
+    """
+
+
+
