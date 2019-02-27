@@ -50,3 +50,25 @@ class CoursesTest(unittest.TestCase):
         Success: Course created successfully
         Failure: Course not created successfully
     """
+
+    # Failed Course Creation Tests
+    def test_course_creation_instructor(self):
+        fsa.command(login Instructor instructorPassword)
+        self.assertEqual(self.fsa.command("create_course testCourse 999 wonderLand M-T-W-TR-F 9-9 SP20 jackson"), "Error: Access Denied")
+
+    """
+        Instructor should not be able to create a course,
+        Success: Course not created successfully
+        Failure: Course created successfully
+    """
+
+    def test_course_creation_ta(self):
+        fsa.command(login TA taPassword)
+        self.assertEqual(self.fsa.command("create_course testCourse 999 wonderLand M-T-W-TR-F 9-9 SP20 jackson"), "Error: Access Denied")
+
+    """
+        TA should not be able to create a course,
+        Success: Course not created successfully
+        Failure: Course created successfully
+    """
+
