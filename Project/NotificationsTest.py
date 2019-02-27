@@ -21,9 +21,9 @@ class NotificationsTest(unittest.TestCase):
         """
 
     def test_supervisor_privilage(self):
-        fsa.command("login Supervisor supervisorPassword")
-        assertEqual(self.fsa.command("new_notification all_users Important"), "New notification started")
-        assertEqual(self.fsa.command("new_notification all_tas test"), "New notification started")
-        assertEqual(self.fsa.command("new_notification all_instructors Hey"), "New notification started")
-        assertEqual(self.fsa.command("new_notification all_admins Listen!"), "New notification started")
-        assertEqual(self.fsa.command("new_notification jrock@uwm.edu HELP"), "New notification started")
+        self.fsa.command("login Supervisor supervisorPassword")
+        self.assertEqual(self.fsa.command("new_notification all_users Important"), "New notification started")
+        self.assertEqual(self.fsa.command("new_notification all_tas test"), "New notification started")
+        self.assertEqual(self.fsa.command("new_notification all_instructors Hey"), "New notification started")
+        self.assertEqual(self.fsa.command("new_notification all_admins Listen!"), "New notification started")
+        self.assertEqual(self.fsa.command("new_notification jrock@uwm.edu HELP"), "New notification started")
