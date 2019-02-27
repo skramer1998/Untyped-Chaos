@@ -22,7 +22,7 @@ class CoursesTest(unittest.TestCase):
             - Course TAs (optional)
             - Course Labs (optional)
             
-            A database entry should be created for the curse, if course creation is a success:
+            A database entry should be created for the course, if course creation is a success:
             - "Course created successfully."
             If input parameters are invalid or entry creation fails, failure:
             - "Error: Invalid parameters or database error"
