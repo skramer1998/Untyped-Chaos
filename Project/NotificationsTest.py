@@ -20,6 +20,10 @@ class NotificationsTest(unittest.TestCase):
         The subject field may be left blank.
         """
 
-        self.fsa.command("new_notification jrock@uwm.edu Help")
-        self.fsa.command("new_notification all_users Important")
-        self.fsa.command("new_notification all_instructors test")
+    def test_supervisor_privilage(self):
+        fsa.command("login Supervisor supervisorPassword")
+        assertEqual(self.fsa.command("new_notification all_users Important"), "New notification started")
+        assertEqual(self.fsa.command("new_notification all_tas test"), "New notification started")
+        assertEqual(self.fsa.command("new_notification all_instructors Hey"), "New notification started")
+        assertEqual(self.fsa.command("new_notification all_admins Listen!"), "New notification started")
+        assertEqual(self.fsa.command("new_notification jrock@uwm.edu HELP"), "New notification started")
