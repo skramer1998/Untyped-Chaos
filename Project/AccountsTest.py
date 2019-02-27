@@ -32,6 +32,11 @@ class AccountsTest(unittest.TestCase):
             - "Error: Access Denied"
         """
 
+    """
+         Supervisor should be able to create accounts,
+         Success: Accounts created successfully
+         Failure: Accounts not created successfully
+     """
     def test_account_creation_supervisor_correct(self):
         self.fsa.command("login Supervisor supervisorPassword")
         self.assertEqual(self.fsa.command(
@@ -44,11 +49,23 @@ class AccountsTest(unittest.TestCase):
             "create_account TA Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345"),
                          "Account created successfully")
 
+    """
+         Administrator should be able to create accounts,
+         Success: Account created successfully
+         Failure: Account not created successfully
+     """
     def test_account_creation_administrator_correct(self):
         self.fsa.command("login Administrator administratorPassword")
+        self.assertEqual(self.fsa.command(
+            "create_account Supervisor Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345"),
+                "Account not created successfully")
+        self.assertEqual(self.fsa.command(
+            "create_account Administrator Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345"),
+            "Account not created successfully")
         self.assertEqual(
             "create_account Instructor Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345",
                 "Account created successfully")
         self.assertEqual(self.fsa.command(
             "create_account TA Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345"),
                 "Account created successfully")
+
