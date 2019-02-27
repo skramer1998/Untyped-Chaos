@@ -26,7 +26,7 @@ class CoursesTest(unittest.TestCase):
             - "Course created successfully."
             If input parameters are invalid or entry creation fails, failure:
             - "Error: Invalid parameters or database error"
-            If user trying to create an account does not have access to do so, failure:
+            If user trying to create a course does not have access to do so, failure:
             - "Error: Access Denied"
         """
 
@@ -42,3 +42,11 @@ class CoursesTest(unittest.TestCase):
     """
 
     def test_course_creation_administrator_correct(self):
+        fsa.command(login Administrator administratorPassword)
+        self.assertEqual(self.fsa.command("create_course testCourse 999 wonderLand M-T-W-TR-F 9-9 SP20 jackson"), "Course created successfully")
+
+    """
+        Administrator should be able to create a course,
+        Success: Course created successfully
+        Failure: Course not created successfully
+    """
