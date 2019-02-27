@@ -25,14 +25,17 @@ class TestRational(TestCase):
         self.assertTrue(self.negDen.d > 0)
 
     """Test Case Ideas"""
+
     def test_badConstructor(self):
         self.assertRaises(SomeException, self.badCon)
 
-
     def test_add(self):
         self.assertEqual(self.rat1.__add__(0), self.rat1, "please stay the same value when adding zero")
-        self.assertNotEqual(self.rat1.__add__(self.rat1), self.rat1, "please don't stay the same value when adding not zero")
+        self.assertNotEqual(self.rat1.__add__(self.rat1), self.rat1,
+                            "please don't stay the same value when adding not zero")
         self.assertEqual(self.rat3.__add__(self.rat3), self.rat1, "1/4 + 1/4 should equal 1/2")
+        self.assertRaises(SomeException(), self.rat1.__add__("cheese"),
+                          "if it doesn't raise an exception shit's not great")
         self.assertRaises(SomeException(), self.rat1.__add__("cheese"), "if it doesn't raise an exception shit's not great")
 
     def test_mul(self):
