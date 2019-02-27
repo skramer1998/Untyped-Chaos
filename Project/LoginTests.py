@@ -4,6 +4,7 @@ import unittest
 class LoginTests(unittest.TestCase):
     def setup(self):
         self.fsa.command("create_user Instructor InstructorPassword")
+        self.fsa.command("create_user TA TAPassword")
 
     """
         When the login command is entered, it takes two arguments:
@@ -17,15 +18,28 @@ class LoginTests(unittest.TestCase):
     def test_command_login_correct(self):
         self.assertEqual(self.fsa.command("login Instructor InstructorPassword"), "Logged in successfully.")
 
+    def test_command_login_bad_pass(self):
+        self.assertEqual(self.fsa.command("login Instructor Notinstructorpassword"), "Error logging in.")
+
+    def test_command_login_bad_case_pass(self):
+        self.assertEqual(self.fsa.command("login Instructor instructorpassword"), "Error logging in.")
+
+    def test_command_login_wrong_pass(self):
+        self.assertEqual(self.fsa.command("login Instructor TAPassword"), "Error logging in.")
+
     def test_command_login_no_pass(self):
         self.assertEqual(self.fsa.command("login Instructor"), "Error logging in.")
 
     def test_command_login_no_args(self):
         self.assertEqual(self.fsa.command("login"), "Error logging in.")
 
-    def test_command_login_already_logged_in(self):
+    def test_command_login_self_already_logged_in(self):
         self.ui.command("login Instructor InstructorPassword")
         self.assertEqual(self.fsa.command("login Instructor InstructorPassword"), "Error logging in.")
+
+    def test_command_login_other_already_logged_in(self):
+        self.ui.command("login Instructor Instructor Password")
+        self.assertEqual(self.fsa.command("login TA TAPassword"), "Error logging in.")
 
     """ 
         When logout command is entered, it takes no arguments.
