@@ -24,7 +24,7 @@ class LoginTests(unittest.TestCase):
     def test_command_login_bad_case_pass(self):
         self.assertEqual(self.fsa.command("login Instructor instructorpassword"), "Error logging in.")
 
-    def test_command_login_wrong_pass(self):
+    def test_command_login_wrong_user_pass(self):
         self.assertEqual(self.fsa.command("login Instructor TAPassword"), "Error logging in.")
 
     def test_command_login_no_pass(self):
