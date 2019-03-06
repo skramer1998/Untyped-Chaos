@@ -12,7 +12,7 @@ class TA:
         self.courses = "none"
         self.labSection = "none"
 
-    def __editSelf__(self):
+    def __editSelf__(self, other):
         """Edit personal information"""
         return TA()
 
