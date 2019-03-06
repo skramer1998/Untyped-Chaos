@@ -14,7 +14,7 @@ class Instructor:
 
     def __editSelf__(self, other):
         """Edit personal information"""
-        return TA()
+        return Instructor()
 
     def __publicInfo__(self):
         """View public info"""
@@ -29,7 +29,7 @@ class Instructor:
         """View your course assignments"""
         return self.courses
 
-    def __assignTAs__(self, other, other):
+    def __assignTAs__(self, other, other2):
         """Assign TAs to lab sections"""
         #return data
         pass
