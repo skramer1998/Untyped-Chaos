@@ -17,8 +17,8 @@ class Rational:
 
     def __sub__(self, other):
         """Return self minus other."""
-        return Rational()
-
+        # return Rational()
+        pass
     def __mul__(self, other):
         """Implement multiplication."""
         return Rational()
