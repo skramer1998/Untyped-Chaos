@@ -40,3 +40,8 @@ class Supervisor:
 
     def assignInstructor(self, course, user):
         """assigns the instructor to a course"""
+        pass
+
+    def notifyAll(self):
+        """no return, sends an email to every user"""
+        pass
