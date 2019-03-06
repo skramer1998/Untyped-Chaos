@@ -1,4 +1,5 @@
 from unittest import TestCase
+from Project.Classes.Admin import Admin
 
 class TestAdmin(TestCase):
 
