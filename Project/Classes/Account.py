@@ -14,5 +14,7 @@ class Account:
         self.userPhone = phone
         self.userAddress = address
 
+        return True
+
     def publicInfo(self, name):
         return 0
