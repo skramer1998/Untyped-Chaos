@@ -1,6 +1,6 @@
 class Supervisor:
 
-    def _init_(self):
+    def __init__(self):
         """Constructor for Supervisor."""
         self.userName = "supervisor"
         self.ID = "0001"
@@ -8,40 +8,40 @@ class Supervisor:
         self.phone = "555-555-5555"
         self.address = "homeless"
 
-    def createCourse(self, course):
+    def __createCourse__(self, course):
         """returns a new course"""
         pass
 
-    def editCourse(self, course):
+    def __editCourse__(self, course):
         """no return, edits course data"""
 
-    def createAccount(self, account):
+    def __createAccount__(self, account):
         """returns a new account"""
         pass
 
-    def modifyAccount(self, account):
+    def __modifyAccount__(self, account):
         """No return, modifies an account"""
         pass
 
-    def editSelf(self):
+    def __editSelf__(self):
         """no return, edits own data"""
         pass
 
-    def publicInfo(self, user):
+    def __publicInfo__(self, user):
         """no return, displays public data on user"""
         pass
 
-    def privateInfo(self, user):
+    def __privateInfo__(self, user):
         """no return, displays private data on user"""
 
-    def assignTA(self, section, user):
+    def __assignTA__(self, section, user):
         """assigns the TA to the lab or course section"""
         pass
 
-    def assignInstructor(self, course, user):
+    def __assignInstructor__(self, course, user):
         """assigns the instructor to a course"""
         pass
 
-    def notifyAll(self):
+    def __notifyAll__(self):
         """no return, sends an email to every user"""
         pass
