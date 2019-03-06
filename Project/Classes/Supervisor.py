@@ -27,9 +27,12 @@ class Supervisor:
         """no return, edits own data"""
         pass
 
-    def seeInfo(self, user):
-        """no return, displays public and private data on user"""
+    def publicInfo(self, user):
+        """no return, displays public data on user"""
         pass
+
+    def privateInfo(self, user):
+        """no return, displays private data on user"""
 
     def assignTA(self, section, user):
         """assigns the TA to the lab or course section"""
