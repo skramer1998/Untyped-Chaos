@@ -12,6 +12,8 @@ class Instructor:
         self.courses = "none"
         self.labSection = "none"
 
+        return False
+
     def __editSelf__(self, other):
         """Edit personal information"""
         return Instructor()

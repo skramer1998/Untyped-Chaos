@@ -5,8 +5,8 @@ from Project.Classes.Account import Account
 class TestAdmin(TestCase):
 
     def setUp(self):
-        self.firstAdmin = Admin()
         self.a1 = Account("Jo", 34, "x@gmail.com", 1234567, "White House")
+        self.firstAdmin = Admin(self.a1)
 
     def test_createCourse(self):
         self.assertEqual(self.firstAdmin.__createCourse__("courseName"), True)

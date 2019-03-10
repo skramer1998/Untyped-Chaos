@@ -12,14 +12,6 @@ class TA:
         self.courses = "none"
         self.labSection = "none"
 
-    def __editSelf__(self, other):
-        """Edit personal information"""
-        return TA()
-
-    def __publicInfo__(self):
-        """View public info"""
-        #return data
-        pass
 
     def __viewTAAssignments__(self):
         """View your TA assignment"""

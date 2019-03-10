@@ -1,28 +1,28 @@
 from unittest import TestCase
 from Project.Classes.TA import TA
+from Project.Classes.Account import Account
+from Project.Classes.Course import Course
+from Project.Classes.Lab import Lab
 
 class TestTA(TestCase):
 
     def setUp(self):
-        self.default = TA()
-        self.namedTom = TA()
+        self.a1 = Account("Rick Flair", 69, "ricky@gmail.com", 5555555, "1600 Pennyslvania Ave")
+        self.course1 = Course("math", "301", "Lubar Hall", "MWF", "4 AM - 11 AM", "Winter 2019", "Prof. Swag Daddy", ["foreign TA 1, foreign TA 2"], [401, 402, 403])
+        self.labArr = [Lab(self.course1, self.course1.courseTA[0], self.course1.Lab[0], "1 AM - 1 PM")]
 
-    """
-    Need to test editing each piece of information that TAs are allowed to edit (personal informaton)
-    """
-    def test__editSelf__(self):
-        self.assertEqual(self.default.__editSelf__(self.default, "userName=tom"), self.namedTom)
+    def test__TA__(self):
+        self.assertEqual(self.t1 = TA(), False)
+        # empty constructor should return false
 
-    """
-    Need to test which data gets returned and build object in setUp that replicate it
-    """
-    def test__publicInfo__(self):
-        self.assertEqual(self.default.__publicInfo__(), self.default)
+        self.assertEqual(self.t2 = TA(self.a1, self.labArr), True)
+        # proper constructor returns true
 
     """
     Need to test assignments for courses and lab sections
     """
     def test__viewTAAssignments__(self):
-        self.assertEqual(self.default.__viewTAAssignments__(), "361")
+        self.t2 = TA(self.a1, self.labArr)
+        self.assertEqual(self.t2.__viewTAAssignments__(), self.labArr)
+        #format for returning the TA's assignments
 
-    pass
