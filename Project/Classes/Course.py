@@ -1,1 +1,2 @@
-class admin(Account):
+class Course:
+

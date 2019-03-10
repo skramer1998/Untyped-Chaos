@@ -7,6 +7,8 @@ class Account:
         self.userPhone = phone
         self.userAddress = address
 
+        # should return false if not set otherwise true
+
     def editSelf(self, name, id, email, phone, address):
         self.userName = name
         self.userID = id
@@ -14,7 +16,7 @@ class Account:
         self.userPhone = phone
         self.userAddress = address
 
-        return True
+        # should return false if not set otherwise true
 
     def publicInfo(self, name):
         return 0
