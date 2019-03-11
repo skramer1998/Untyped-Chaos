@@ -1,8 +1,8 @@
 class Account:
 
-    def __init__(self, name, id, email, phone, address):
-        self.userName = name
+    def __init__(self, id, first, middle, last, email, phone, address):
         self.userID = id
+        self.userName = first + " " + middle + " " + last
         self.userEmail = email
         self.userPhone = phone
         self.userAddress = address
