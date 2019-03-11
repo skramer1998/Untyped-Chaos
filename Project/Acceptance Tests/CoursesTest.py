@@ -95,3 +95,53 @@ class CoursesTest(unittest.TestCase):
         self.assertEqual(self.fsa.command("edit_course 362 ta albany"), "Course ta updated.")
         self.assertEqual(self.fsa.command("edit_course 362 lab M-W"), "Course lab updated.")
 
+    def test_course_view_supervisor(self):
+        self.fsa.command("login Supervisor supervisorPassword")
+        self.assertEqual(self.fsa.command("edit_course 361 name"), "softwareEngineering")
+        self.assertEqual(self.fsa.command("edit_course 361 number"), "361")
+        self.assertEqual(self.fsa.command("edit_course 361 place"), "lubarHall")
+        self.assertEqual(self.fsa.command("edit_course 361 days"), "T-TR")
+        self.assertEqual(self.fsa.command("edit_course 361 times"), "10-10:50")
+        self.assertEqual(self.fsa.command("edit_course 361 semester"), "SP19")
+        self.assertEqual(self.fsa.command("edit_course 361"), "rock")
+        self.assertEqual(self.fsa.command("edit_course 361"), "apoorv")
+        self.assertEqual(self.fsa.command("edit_course 361 lab"), "1")
+
+    def test_course_view_administrator(self):
+        self.fsa.command("login Administrator administratorPassword")
+        self.assertEqual(self.fsa.command("edit_course 361 name"), "softwareEngineering")
+        self.assertEqual(self.fsa.command("edit_course 361 number"), "361")
+        self.assertEqual(self.fsa.command("edit_course 361 place"), "lubarHall")
+        self.assertEqual(self.fsa.command("edit_course 361 days"), "T-TR")
+        self.assertEqual(self.fsa.command("edit_course 361 times"), "10-10:50")
+        self.assertEqual(self.fsa.command("edit_course 361 semester"), "SP19")
+        self.assertEqual(self.fsa.command("edit_course 361"), "rock")
+        self.assertEqual(self.fsa.command("edit_course 361"), "apoorv")
+        self.assertEqual(self.fsa.command("edit_course 361 lab"), "1")
+
+    def test_course_view_instructor(self):
+        self.fsa.command("login Instructor instructorPassword")
+        self.assertEqual(self.fsa.command("edit_course 361 name"), "softwareEngineering")
+        self.assertEqual(self.fsa.command("edit_course 361 number"), "361")
+        self.assertEqual(self.fsa.command("edit_course 361 place"), "lubarHall")
+        self.assertEqual(self.fsa.command("edit_course 361 days"), "T-TR")
+        self.assertEqual(self.fsa.command("edit_course 361 times"), "10-10:50")
+        self.assertEqual(self.fsa.command("edit_course 361 semester"), "SP19")
+        self.assertEqual(self.fsa.command("edit_course 361"), "rock")
+        self.assertEqual(self.fsa.command("edit_course 361"), "apoorv")
+        self.assertEqual(self.fsa.command("edit_course 361 lab"), "1")
+
+    def test_course_view_TA(self):
+        self.fsa.command("login TA taPassword")
+        self.assertEqual(self.fsa.command("edit_course 361 name"), "softwareEngineering")
+        self.assertEqual(self.fsa.command("edit_course 361 number"), "361")
+        self.assertEqual(self.fsa.command("edit_course 361 place"), "lubarHall")
+        self.assertEqual(self.fsa.command("edit_course 361 days"), "T-TR")
+        self.assertEqual(self.fsa.command("edit_course 361 times"), "10-10:50")
+        self.assertEqual(self.fsa.command("edit_course 361 semester"), "SP19")
+        self.assertEqual(self.fsa.command("edit_course 361"), "rock")
+        self.assertEqual(self.fsa.command("edit_course 361"), "apoorv")
+        self.assertEqual(self.fsa.command("edit_course 361 lab"), "1")
+
+
+
