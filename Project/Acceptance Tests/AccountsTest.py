@@ -40,14 +40,26 @@ class AccountsTest(unittest.TestCase):
     def test_account_creation_supervisor_correct(self):
         self.fsa.command("login Supervisor supervisorPassword")
         self.assertEqual(self.fsa.command(
+            "create_account Supervisor John Doe jdoe@uwm.edu 1(234)567-8900 123_Example_Street_Milwuakee_WI_12345"),
+            "Account created successfully")
+        self.assertEqual(self.fsa.command(
             "create_account Administrator Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345"),
-                         "Account created successfully")
+            "Account created successfully")
+        self.assertEqual(self.fsa.command(
+            "create_account Administrator John Doe jdoe@uwm.edu 1(234)567-8900 123_Example_Street_Milwuakee_WI_12345"),
+            "Account created successfully")
         self.assertEqual(self.fsa.command(
             "create_account Instructor Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345"),
-                         "Account created successfully")
+            "Account created successfully")
+        self.assertEqual(self.fsa.command(
+            "create_account Instructor John Doe jdoe@uwm.edu 1(234)567-8900 123_Example_Street_Milwuakee_WI_12345"),
+            "Account created successfully")
         self.assertEqual(self.fsa.command(
             "create_account TA Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345"),
-                         "Account created successfully")
+            "Account created successfully")
+        self.assertEqual(self.fsa.command(
+            "create_account TA John Doe jdoe@uwm.edu 1(234)567-8901 123_Example_Street_Milwuakee_WI_12345"),
+            "Account created successfully")
 
     """
          Administrator should be able to create accounts,
@@ -60,12 +72,73 @@ class AccountsTest(unittest.TestCase):
             "create_account Supervisor Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345"),
                 "Account not created successfully")
         self.assertEqual(self.fsa.command(
-            "create_account Administrator Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345"),
+            "create_account Supervisor John Doe jdoe@uwm.edu 1(234)567-8900 123_Example_Street_Milwuakee_WI_12345"),
             "Account not created successfully")
+        self.assertEqual(self.fsa.command(
+            "create_account Administrator Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345"),
+            "Account not created successfully") ##why not? bc it already exists?
+        self.assertEqual(self.fsa.command(
+            "create_account Administrator John Doe jdoe@uwm.edu 1(234)567-8900 123_Example_Street_Milwuakee_WI_12345"),
+            "Account created successfully")
         self.assertEqual(
             "create_account Instructor Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345",
                 "Account created successfully")
         self.assertEqual(self.fsa.command(
+            "create_account Instructor John Doe jdoe@uwm.edu 1(234)567-8900 123_Example_Street_Milwuakee_WI_12345"),
+            "Account created successfully")
+        self.assertEqual(self.fsa.command(
             "create_account TA Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345"),
                 "Account created successfully")
+        self.assertEqual(self.fsa.command(
+            "create_account TA John Doe jdoe@uwm.edu 1(234)567-8900 123_Example_Street_Milwuakee_WI_12345"),
+            "Account created successfully")
 
+    """
+        Instructors and TAs should not be able to create accounts, all such attempts should fail
+        Failure: Account not created successfully
+    """
+    def test_account_creation_without_permissions(self):
+        #without login should fail
+        self.assertEqual(self.fsa.command(
+            "create_account Supervisor Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345"),
+            "Account not created successfully")
+        self.assertEqual(self.fsa.command(
+            "create_account Administrator Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345"),
+            "Account not created successfully")
+        self.assertEqual(self.fsa.command(
+            "create_account Instructor Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345"),
+            "Account not created successfully")
+        self.assertEqual(self.fsa.command(
+            "create_account TA Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345"),
+            "Account not created successfully")
+
+        #login as Instructor should not provide access
+        self.fsa.command("login Instructor instructorPassword")
+        self.assertEqual(self.fsa.command(
+            "create_account Supervisor Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345"),
+            "Account not created successfully")
+        self.assertEqual(self.fsa.command(
+            "create_account Administrator Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345"),
+            "Account not created successfully")
+        self.assertEqual(self.fsa.command(
+            "create_account Instructor Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345"),
+            "Account not created successfully")
+        self.assertEqual(self.fsa.command(
+            "create_account TA Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345"),
+            "Account not created successfully")
+        self.fsa.command("logout")
+
+        #login as TA should not provide access
+        self.fsa.command("login TA taPassword")
+        self.assertEqual(self.fsa.command(
+            "create_account Supervisor Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345"),
+            "Account not created successfully")
+        self.assertEqual(self.fsa.command(
+            "create_account Administrator Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345"),
+            "Account not created successfully")
+        self.assertEqual(self.fsa.command(
+            "create_account Instructor Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345"),
+            "Account not created successfully")
+        self.assertEqual(self.fsa.command(
+            "create_account TA Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345"),
+            "Account not created successfully")
