@@ -70,19 +70,19 @@ class AccountsTest(unittest.TestCase):
         self.fsa.command("login Administrator administratorPassword")
         self.assertEqual(self.fsa.command(
             "create_account Supervisor Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345"),
-                "Account not created successfully")
+            "Account not created successfully")
         self.assertEqual(self.fsa.command(
             "create_account Supervisor John Doe jdoe@uwm.edu 1(234)567-8900 123_Example_Street_Milwuakee_WI_12345"),
             "Account not created successfully")
         self.assertEqual(self.fsa.command(
             "create_account Administrator Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345"),
-            "Account not created successfully") ##why not? bc it already exists?
+            "Account not created successfully")
         self.assertEqual(self.fsa.command(
             "create_account Administrator John Doe jdoe@uwm.edu 1(234)567-8900 123_Example_Street_Milwuakee_WI_12345"),
             "Account created successfully")
         self.assertEqual(
             "create_account Instructor Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345",
-                "Account created successfully")
+             "Account created successfully")
         self.assertEqual(self.fsa.command(
             "create_account Instructor John Doe jdoe@uwm.edu 1(234)567-8900 123_Example_Street_Milwuakee_WI_12345"),
             "Account created successfully")
