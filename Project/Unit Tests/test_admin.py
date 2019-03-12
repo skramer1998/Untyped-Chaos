@@ -19,6 +19,14 @@ class TestAdmin(TestCase):
 
     def test_modifyAccount(self):
         self.assertEqual(self.firstAdmin.__modifyAccounts__(self.a1, "Tom", 21, "newEmail@gmail.com", 1234560, "address"), True)
+        # succesful valid params
+
+        self.assertEqual(self.firstAdmin.__modifyAccounts__(self.a1, "Tom"), False)
+        self.assertEqual(self.firstAdmin.__modifyAccounts__("Tom", 21, "newEmail@gmail.com", 1234560, "address"), False)
+        self.assertEqual(self.firstAdmin.__modifyAccounts__(), False)
+        # bad params
+
+        self.firstAdmin.__modifyAccounts__(self.a1, "Tom", 21, "newEmail@gmail.com", 1234560, "address")
         self.assertEqual(self.a1.userName, "Tom", "User name not set correctly.")
         self.assertEqual(self.a1.userID, 21, "User ID not set correctly.")
         self.assertEqual(self.a1.userEmail, "newEmail@gmail.com", "User Email not set correctly.")
