@@ -31,4 +31,6 @@ class TestAccount(TestCase):
         # tests the outcome of putting bogus parameters into the method
 
     def test_publicInfo(self):
-        self.assertTrue()
+        self.assertTrue(self.a1.publicInfo(self.a1))
+        # attempts to run publicInfo method succesfully
+

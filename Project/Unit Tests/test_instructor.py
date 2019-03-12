@@ -14,12 +14,6 @@ class TestInstructor(TestCase):
         self.t1 = TA(self.a1, self.labArr)
         self.instruct1 = Instructor(self.t1, [self.course1])
 
-    def test__Instructor__(self):
-        self.assertEqual(self.i2 = Instructor(), False)
-        # empty constructor should return false
-
-        self.assertEqual(self.i3 = Instructor(self.t1, [self.course1]), True)
-        # proper constructor returns true
 
     def test__viewCourseAssignments__(self):
         """View your course assignments"""
