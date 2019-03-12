@@ -15,10 +15,9 @@ class TestInstructor(TestCase):
         self.t1 = TA(self.a1, self.labArr)
         self.in1 = Instructor(self.t1, [self.course1])
 
-
     def test__viewCourseAssignments__(self):
         """View your course assignments"""
-        self.assertEqual(self.in1.viewCourseAssignments(), self.instruct1.courses)
+        self.assertEqual(self.in1.viewCourseAssignments(), True)
 
     def test__assignTA__(self):
         self.assertEqual(self.in1.__assignTA__(self.lab1, self.t1), True)
@@ -32,7 +31,7 @@ class TestInstructor(TestCase):
         # invalid parameters
 
         self.in1.__assignTA__(self.lab1, self.t1)
-        self.assertTrue(self.lab1.TAs.__contains__(self.t3.userName))
+        self.assertTrue(self.lab1.TAs.__contains__(self.t1.userName))
         # checks if TA was assigned
 
     def test__msgTAs__(self):
