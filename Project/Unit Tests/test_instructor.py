@@ -17,7 +17,7 @@ class TestInstructor(TestCase):
 
     def test__viewCourseAssignments__(self):
         """View your course assignments"""
-        self.assertEqual(self.in1.viewCourseAssignments(), True)
+        self.assertTrue(self.in1.viewCourseAssignments())
 
     def test__assignTA__(self):
         self.assertEqual(self.in1.__assignTA__(self.lab1, self.t1), True)
@@ -36,5 +36,5 @@ class TestInstructor(TestCase):
 
     def test__msgTAs__(self):
         """Message TAs in your courses"""
-        self.assertEqual(self.in1.msgTAs("yo"), True)
+        self.assertTrue(self.in1.msgTAs("yo"))
 
