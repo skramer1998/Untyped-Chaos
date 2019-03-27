@@ -1,14 +1,19 @@
 from django.test import TestCase
-from untitled1.AppName.models import Login
+from untitled1.AppName.models import AccountModel
 
 # remember, fsa stands for functional school app
 
 
 class LoginTests(TestCase):
     def setup(self):
-
-        Login.object.create(userName = "Instructor", password = "InstructorPassword")
-        Login.object.create(userName = "TA", password = "TAPassword")
+        AccountModel.object.create(Role="Supervisor", Name="Jane", Email="doe@uwm.edu", Phone="1(234)567-8901",
+                                   Address="321_Example_Street_Milwuakee_WI_12345", userName = "hello123", password = "abc")
+        AccountModel.object.create(Role="Administrator", Name="Jane", Email="doe@uwm.edu", Phone="1(234)567-8901",
+                                   Address="321_Example_Street_Milwuakee_WI_12345", userName = "jandoe", password = "142")
+        AccountModel.object.create(Role="Instructor", Name="Jane", Email="doe@uwm.edu", Phone="1(234)567-8901",
+                                   Address="321_Example_Street_Milwuakee_WI_12345", userName = "jdoe", password = "123")
+        AccountModel.object.create(Role="TA", Name="Jane", Email="doe@uwm.edu", Phone="1(234)567-8901",
+                                   Address="321_Example_Street_Milwuakee_WI_12345", userName = "jdoe", password = "123")
         #^^ Need model for this
 
         #self.fsa.command("create_user Instructor InstructorPassword")
