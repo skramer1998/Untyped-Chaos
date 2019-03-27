@@ -1,17 +1,17 @@
 from django.test import TestCase
-from untitled1.AppName.models import Courses
+from untitled1.AppName.models import CoursesModel
 
 
 class CoursesTest(TestCase):
     def setup(self):
 
-        Courses.object.create(name="softwareEngineering", number=361, place="lubarHall", days="T-TR", time="10-10:50",
+        CoursesModel.object.create(name="softwareEngineering", number=361, place="lubarHall", days="T-TR", time="10-10:50",
                              semester="SP19", professor="rock", ta="apoorv", labs=1)
-        Courses.object.create(name="algorithmDesign", number=535, place="EMS", days="M-W", time="4-5:15",
+        CoursesModel.object.create(name="algorithmDesign", number=535, place="EMS", days="M-W", time="4-5:15",
                              semester="SP19", professor="cheng", ta=null, labs=0)
-        Courses.object.create(name="security", number=469, place="EMS", days="T-TR", time="10-10:50",
+        CoursesModel.object.create(name="security", number=469, place="EMS", days="T-TR", time="10-10:50",
                              semester="SP19", professor="bob", ta=null, labs=0)
-        Courses.object.create(name="operatingSystems", number=550, place="physics", days="M-W-F", time="8-8:50",
+        CoursesModel.object.create(name="operatingSystems", number=550, place="physics", days="M-W-F", time="8-8:50",
                              semester="SP19", professor="sorensen", ta="jimbo-allen", labs=2)
 
         #self.fsa.command("create_course softwareEngineering 361 lubarHall T-TR 10-10:50 SP19 rock apoorv 1")
