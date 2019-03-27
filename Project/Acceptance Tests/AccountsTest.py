@@ -7,10 +7,10 @@ class AccountsTest(unittest.TestCase):
         self.fsa.command("create_account AccountID FirstName LastName Email PhoneNumber Address")
         currently allowing same user to have different roles
         """
-        self.fsa.object.create(Role = "Supervisor", Name = "Jane", Email = "doe@uwm.edu", Phone = "1(234)567-8901", Address = "321_Example_Street_Milwuakee_WI_12345")
-        self.fsa.object.create(Role="Administrator", Name="Jane", Email="doe@uwm.edu", Phone="1(234)567-8901", Address="321_Example_Street_Milwuakee_WI_12345")
-        self.fsa.object.create(Role="Instructor", Name="Jane", Email="doe@uwm.edu", Phone="1(234)567-8901", Address="321_Example_Street_Milwuakee_WI_12345")
-        self.fsa.object.create(Role="TA", Name="Jane", Email="doe@uwm.edu", Phone="1(234)567-8901", Address="321_Example_Street_Milwuakee_WI_12345")
+        Account.object.create(Role = "Supervisor", Name = "Jane", Email = "doe@uwm.edu", Phone = "1(234)567-8901", Address = "321_Example_Street_Milwuakee_WI_12345")
+        Account.object.create(Role="Administrator", Name="Jane", Email="doe@uwm.edu", Phone="1(234)567-8901", Address="321_Example_Street_Milwuakee_WI_12345")
+        Account.object.create(Role="Instructor", Name="Jane", Email="doe@uwm.edu", Phone="1(234)567-8901", Address="321_Example_Street_Milwuakee_WI_12345")
+        Account.object.create(Role="TA", Name="Jane", Email="doe@uwm.edu", Phone="1(234)567-8901", Address="321_Example_Street_Milwuakee_WI_12345")
         #^^this should be refrencing the accounts db
 
         self.fsa.command("create_account Supervisor Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345")
@@ -24,7 +24,7 @@ class AccountsTest(unittest.TestCase):
             When the create account command is entered, and the user has a valid ID, it takes 7 arguments:
             - Account ID
             - First Name
-            - Middle Name (optional)
+            - Middle Name (optional)K
             - Last Name
             - Email address (not limited to @uwm.edu)
             - Phone Number (style : #(###)###-####)

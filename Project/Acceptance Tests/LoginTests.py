@@ -3,6 +3,11 @@ import unittest
 
 class LoginTests(unittest.TestCase):
     def setup(self):
+
+        Login.object.create(userName = "Instructor", password = "InstructorPassword")
+        Login.object.create(userName = "TA", password = "TAPassword")
+        #^^ Need model for this
+
         self.fsa.command("create_user Instructor InstructorPassword")
         self.fsa.command("create_user TA TAPassword")
 

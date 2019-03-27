@@ -3,6 +3,10 @@ import unittest
 class CoursesTest(unittest.TestCase):
     def setup(self):
 
+        Course.object.create(Name="softwareEngineering", Number=361, Place="lubarHall", Days="T-TR", Time="10-10:50",
+                             Semester="SP19", Professor="rock", TA="apoorv", Labs=1)
+
+
         self.fsa.command("create_course softwareEngineering 361 lubarHall T-TR 10-10:50 SP19 rock apoorv 1")
         self.fsa.command("create_course algorithmDesign 535 EMS M-W 4-5:15 SP19 cheng")
         self.fsa.command("create_course security 469 EMS T-TR 10-10:50 SP19 bob")

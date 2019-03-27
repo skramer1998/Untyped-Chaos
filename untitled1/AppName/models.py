@@ -13,3 +13,7 @@ class AccountModel(models.Model):
     Email = models.EmailField(max_length=30)
     Phone = models.CharField(max_length=11)
     Address = models.CharField(max_length=30)
+
+class Login(models.Model):
+    userName = models.CharField(max_length=30)
+    password = models.CharField(max_length=30)
