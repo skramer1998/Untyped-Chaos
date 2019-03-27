@@ -9,10 +9,14 @@ class AccountsTest(TestCase):
         self.fsa.command("create_account AccountID FirstName LastName Email PhoneNumber Address")
         currently allowing same user to have different roles
         """
-        AccountModel.object.create(role = "Supervisor", name = "Jane", email = "doe@uwm.edu", phone = "1(234)567-8901", address = "321_Example_Street_Milwuakee_WI_12345")
-        AccountModel.object.create(role="Administrator", name="Jane", email="doe@uwm.edu", phone="1(234)567-8901", address="321_Example_Street_Milwuakee_WI_12345")
-        AccountModel.object.create(role="Instructor", name="Jane", email="doe@uwm.edu", phone="1(234)567-8901", address="321_Example_Street_Milwuakee_WI_12345")
-        AccountModel.object.create(role="TA", name="Jane", email="doe@uwm.edu", phone="1(234)567-8901", address="321_Example_Street_Milwuakee_WI_12345")
+        AccountModel.object.create(Role="Supervisor", Name="Jane", Email="doe@uwm.edu", Phone="1(234)567-8901",
+                                   Address="321_Example_Street_Milwuakee_WI_12345", userName="hello123", password="abc")
+        AccountModel.object.create(Role="Administrator", Name="Jane", Email="doe@uwm.edu", Phone="1(234)567-8901",
+                                   Address="321_Example_Street_Milwuakee_WI_12345", userName="jandoe", password="142")
+        AccountModel.object.create(Role="Instructor", Name="Jane", Email="doe@uwm.edu", Phone="1(234)567-8901",
+                                   Address="321_Example_Street_Milwuakee_WI_12345", userName="jdoe", password="123")
+        AccountModel.object.create(Role="TA", Name="Jane", Email="doe@uwm.edu", Phone="1(234)567-8901",
+                                   Address="321_Example_Street_Milwuakee_WI_12345", userName="jdoe", password="123")
         #^^this should be refrencing the accounts db
 
         #self.fsa.command("create_account Supervisor Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345")
