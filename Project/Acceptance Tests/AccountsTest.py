@@ -1,16 +1,17 @@
-import unittest
+from django.test import TestCase
+from untitled1.AppName.models import AccountModel
 
-class AccountsTest(unittest.TestCase):
+class AccountsTest(TestCase):
     def setup(self):
         """
         create account
         self.fsa.command("create_account AccountID FirstName LastName Email PhoneNumber Address")
         currently allowing same user to have different roles
         """
-        Account.object.create(Role = "Supervisor", Name = "Jane", Email = "doe@uwm.edu", Phone = "1(234)567-8901", Address = "321_Example_Street_Milwuakee_WI_12345")
-        Account.object.create(Role="Administrator", Name="Jane", Email="doe@uwm.edu", Phone="1(234)567-8901", Address="321_Example_Street_Milwuakee_WI_12345")
-        Account.object.create(Role="Instructor", Name="Jane", Email="doe@uwm.edu", Phone="1(234)567-8901", Address="321_Example_Street_Milwuakee_WI_12345")
-        Account.object.create(Role="TA", Name="Jane", Email="doe@uwm.edu", Phone="1(234)567-8901", Address="321_Example_Street_Milwuakee_WI_12345")
+        AccountModel.object.create(Role = "Supervisor", Name = "Jane", Email = "doe@uwm.edu", Phone = "1(234)567-8901", Address = "321_Example_Street_Milwuakee_WI_12345")
+        AccountModel.object.create(Role="Administrator", Name="Jane", Email="doe@uwm.edu", Phone="1(234)567-8901", Address="321_Example_Street_Milwuakee_WI_12345")
+        AccountModel.object.create(Role="Instructor", Name="Jane", Email="doe@uwm.edu", Phone="1(234)567-8901", Address="321_Example_Street_Milwuakee_WI_12345")
+        AccountModel.object.create(Role="TA", Name="Jane", Email="doe@uwm.edu", Phone="1(234)567-8901", Address="321_Example_Street_Milwuakee_WI_12345")
         #^^this should be refrencing the accounts db
 
         self.fsa.command("create_account Supervisor Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345")
