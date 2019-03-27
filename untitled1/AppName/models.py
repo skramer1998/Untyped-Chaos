@@ -8,11 +8,11 @@ class MyModel(models.Model):
     color = models.CharField(max_length=7)
 
 class AccountModel(models.Model):
-    Role = models.CharField(max_length=12)
-    Name = models.CharField(max_length=30)
-    Email = models.EmailField(max_length=30)
-    Phone = models.CharField(max_length=11)
-    Address = models.CharField(max_length=30)
+    role = models.CharField(max_length=12)
+    name = models.CharField(max_length=30)
+    email = models.EmailField(max_length=30)
+    phone = models.CharField(max_length=11)
+    address = models.CharField(max_length=30)
 
 class Login(models.Model):
     userName = models.CharField(max_length=30)
