@@ -1,6 +1,7 @@
 from django.test import TestCase
 from untitled1.AppName.models import Courses
 
+
 class CoursesTest(TestCase):
     def setup(self):
 
