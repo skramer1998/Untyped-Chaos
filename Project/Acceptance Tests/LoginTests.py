@@ -3,6 +3,7 @@ from untitled1.AppName.models import Login
 
 # remember, fsa stands for functional school app
 
+
 class LoginTests(TestCase):
     def setup(self):
 
