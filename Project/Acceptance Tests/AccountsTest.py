@@ -14,10 +14,10 @@ class AccountsTest(TestCase):
         AccountModel.object.create(Role="TA", Name="Jane", Email="doe@uwm.edu", Phone="1(234)567-8901", Address="321_Example_Street_Milwuakee_WI_12345")
         #^^this should be refrencing the accounts db
 
-        self.fsa.command("create_account Supervisor Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345")
-        self.fsa.command("create_account Administrator Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345")
-        self.fsa.command("create_account Instructor Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345")
-        self.fsa.command("create_account TA Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345")
+        #self.fsa.command("create_account Supervisor Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345")
+        #self.fsa.command("create_account Administrator Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345")
+        #self.fsa.command("create_account Instructor Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345")
+        #self.fsa.command("create_account TA Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345")
 
         """
             self.fsa.command("create_account AccountID FirstName MI LastName Email PhoneNumber Address")
