@@ -7,6 +7,12 @@ class AccountsTest(unittest.TestCase):
         self.fsa.command("create_account AccountID FirstName LastName Email PhoneNumber Address")
         currently allowing same user to have different roles
         """
+        self.fsa.object.create(Role = "Supervisor", Name = "Jane", Email = "doe@uwm.edu", Phone = "1(234)567-8901", Address = "321_Example_Street_Milwuakee_WI_12345")
+        self.fsa.object.create(Role="Administrator", Name="Jane", Email="doe@uwm.edu", Phone="1(234)567-8901", Address="321_Example_Street_Milwuakee_WI_12345")
+        self.fsa.object.create(Role="Instructor", Name="Jane", Email="doe@uwm.edu", Phone="1(234)567-8901", Address="321_Example_Street_Milwuakee_WI_12345")
+        self.fsa.object.create(Role="TA", Name="Jane", Email="doe@uwm.edu", Phone="1(234)567-8901", Address="321_Example_Street_Milwuakee_WI_12345")
+        #^^this should be refrencing the accounts db
+
         self.fsa.command("create_account Supervisor Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345")
         self.fsa.command("create_account Administrator Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345")
         self.fsa.command("create_account Instructor Jane Doe doe@uwm.edu 1(234)567-8901 321_Example_Street_Milwuakee_WI_12345")
