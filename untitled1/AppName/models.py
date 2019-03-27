@@ -16,7 +16,8 @@ class AccountModel(models.Model):
     email = models.EmailField(max_length=30)
     phone = models.CharField(max_length=11)
     address = models.CharField(max_length=30)
-
+    userName = models.CharField(max_length=30)
+    password = models.CharField(max_length=30)
 
 class CoursesModel(models.Model):
     name = models.CharField(max_length=30)
