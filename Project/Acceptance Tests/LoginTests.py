@@ -1,7 +1,9 @@
-import unittest
+from django.test import TestCase
+from untitled1.AppName.models import Login
+
 # remember, fsa stands for functional school app
 
-class LoginTests(unittest.TestCase):
+class LoginTests(TestCase):
     def setup(self):
 
         Login.object.create(userName = "Instructor", password = "InstructorPassword")
