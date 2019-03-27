@@ -19,6 +19,7 @@ class AccountModel(models.Model):
     userName = models.CharField(max_length=30)
     password = models.CharField(max_length=30)
 
+
 class CoursesModel(models.Model):
     name = models.CharField(max_length=30)
     number = models.IntegerField(default=0)
