@@ -17,3 +17,14 @@ class AccountModel(models.Model):
 class Login(models.Model):
     userName = models.CharField(max_length=30)
     password = models.CharField(max_length=30)
+
+class Courses(models.Model):
+    name = models.CharField(max_length=30)
+    number = models.IntegerField(default=0)
+    place = models.CharField(max_length=30)
+    days = models.CharField(max_length=30)
+    time = models.CharField(max_length=30)
+    semester = models.CharField(max_length=30)
+    professor = models.CharField(max_length=30)
+    ta = models.CharField(max_length=30)
+    labs = models.IntegerField(default=0)
