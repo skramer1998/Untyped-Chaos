@@ -1,9 +1,11 @@
-import unittest
+from django.test import TestCase
+from untitled1.AppName.models import Courses
 
-class CoursesTest(unittest.TestCase):
+
+class CoursesTest(TestCase):
     def setup(self):
 
-        Course.object.create(name="softwareEngineering", number=361, place="lubarHall", days="T-TR", time="10-10:50",
+        Courses.object.create(name="softwareEngineering", number=361, place="lubarHall", days="T-TR", time="10-10:50",
                              semester="SP19", professor="rock", ta="apoorv", labs=1)
         Course.object.create(name="algorithmDesign", number=535, place="EMS", days="M-W", time="4-5:15",
                              semester="SP19", professor="cheng", ta=null, labs=0)
