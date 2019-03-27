@@ -1,5 +1,5 @@
 from django.test import TestCase
-from untitled1.AppName.models import Login
+from untitled1.AppName.models import LoginModel
 
 # remember, fsa stands for functional school app
 
@@ -7,8 +7,8 @@ from untitled1.AppName.models import Login
 class LoginTests(TestCase):
     def setup(self):
 
-        Login.object.create(userName = "Instructor", password = "InstructorPassword")
-        Login.object.create(userName = "TA", password = "TAPassword")
+        LoginModel.object.create(userName = "Instructor", password = "InstructorPassword")
+        LoginModel.object.create(userName = "TA", password = "TAPassword")
         #^^ Need model for this
 
         #self.fsa.command("create_user Instructor InstructorPassword")
