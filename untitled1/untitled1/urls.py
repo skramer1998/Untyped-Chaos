@@ -20,7 +20,7 @@ from AppName.views import index
 
 urlpatterns = [
     url('admin/', admin.site.urls),
-    url('index/', index)
+    url('index/', index),
     path('accounts/', include('django.contrib.auth.urls'))
 
 ]
