@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.db import models
+from django.contrib.auth.models import AbstractUser
+
 
 # Create your models here.
 
@@ -30,3 +32,12 @@ class CoursesModel(models.Model):
     professor = models.CharField(max_length=30)
     ta = models.CharField(max_length=30)
     labs = models.IntegerField(default=0)
+
+
+class User(AbstractUser):
+    is_TA = models.BooleanField('TA status', default=False)
+    is_Instructor = models.BooleanField('Instructor status', default=False)
+    is_Supervisor = models.BooleanField('Supervisor status', default=False)
+    is_Admin = models.BooleanField('Admin status', default=False)
+# this is how permissions will be handled. This will let us use the same account with multiple permission levels
+# it's also less work than user groups, but I can edit this to include them if needed
