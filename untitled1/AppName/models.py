@@ -34,7 +34,7 @@ class CoursesModel(models.Model):
     labs = models.IntegerField(default=0)
 
 
-class User(AbstractUser):
+class UserModel(models.Model):
     is_TA = models.BooleanField('TA status', default=False)
     is_Instructor = models.BooleanField('Instructor status', default=False)
     is_Supervisor = models.BooleanField('Supervisor status', default=False)
