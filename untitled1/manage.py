@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+
+# uhh, our project isn't set up so the standard shortcuts work right
+# but if you cmd into untitled1 and use manage.py [command]
+# you get to do the things that should be working from the admin console
 import os
 import sys
 
